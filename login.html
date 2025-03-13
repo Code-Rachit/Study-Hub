@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Study Hub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            flex-direction: column;
+        }
+
+        /* Header Styling */
+        .header {
+            width: 100%;
+            background-color: rgba(169, 169, 169, 0.7);
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .header img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .header h1 {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            margin: 0;
+        }
+
+        /* Cyberpunk Cityscape Video Background */
+        .background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .background video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 400px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            margin-top: 80px;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .login-container button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            background-color: #ff0099;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .login-container button:hover {
+            background-color: #cc0077;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background">
+        <video autoplay loop muted>
+            <source src="images/bgp.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+     <!-- Header -->
+     <div class="header">
+        <img src="images/Study_Hub_Logo.jpg" alt="Study Hub Logo"> <!-- Replace with actual logo path -->
+        <h1 style="font-size: xxx-large;">Study Hub</h1>
+        
+
+    </div>
+    
+    <!-- Login Form -->
+    <div class="login-container">
+        <h2 style="font-weight: bold;">LOGIN PLEASE :-)</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p class="error-message" id="error-message"></p> <!-- Error message display -->
+    </div>
+
+    <script>
+        // JavaScript to handle login form submission
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting the traditional way
+
+            // Get the values from the form
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Define credentials for Admin and User
+            const adminCredentials = { username: "Admin", password: "Rachit@123" };
+            const userCredentials = { username: "Student", password: "Student@098" };
+
+            // Check if credentials match for Admin or User
+            if (username === adminCredentials.username && password === adminCredentials.password) {
+                // Redirect to Admin Panel if login is successful
+                window.location.href = "admin_panel.html";
+            } else if (username === userCredentials.username && password === userCredentials.password) {
+                // Redirect to Study Material if user login is successful
+                window.location.href = "index.html";
+            } else {
+                // Display error message if login fails
+                document.getElementById("error-message").textContent = "Invalid username or password.";
+            }
+        });
+    </script>
+</body>
+</html>

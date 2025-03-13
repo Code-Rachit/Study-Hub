@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Material</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Custom styling for the dropdown and layout */
+        select {
+            width: 300px;
+            height: 40px;
+            font-size: 18px;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        select:focus {
+            border-color: #3498db;
+        }
+
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .dropdown-container {
+            margin-bottom: 20px;
+        }
+
+        .subject-list ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .subject-list li {
+            margin: 10px 0;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .subject-list a {
+            color: #2a4d68;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .subject-list a:hover {
+            color: #3a7d97;
+        }
+
+        /* Style for the "Click Here" icon */
+        .subject-list .click-here {
+            font-size: 18px;
+            color: #3498db;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .subject-list .click-here:hover {
+            color: #1d6fa5;
+        }
+
+        /* Custom styling for the dropdown and layout */
+        .subject-list ul {
+            text-align: left;
+        }
+
+        .subject-list li {
+            display: flex;
+            align-items: center;
+        }
+
+        .subject-list .click-here {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-left: 15px;
+        }
+
+        .subject-list .click-here:hover {
+            background-color: #1d6fa5;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="study_material.html">Study Material</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html" id="logoutLink">Logout</a>
+    </div>
+
+    <div class="content">
+        <h1>Study Material</h1>
+        <p><strong>FOR ANY OTHER HELP YOU CAN EMAIL US IN CONTACT SECTION.</strong></p>
+
+        <!-- Dropdown to choose the group -->
+        <div class="dropdown-container">
+            <label for="group">To which group you belong :-) </label>
+            <select id="group" onchange="filterSubjects()">
+                <option value="none">Select Group</option>
+                <option value="physics">Physics</option>
+                <option value="chemistry">Chemistry</option>
+            </select>
+        </div>
+
+        <!-- Dropdown to choose subject -->
+        <div class="dropdown-container">
+            <label for="subject">Choose your subject:</label>
+            <select id="subject" disabled>
+                <option value="none">Select Subject</option>
+            </select>
+        </div>
+
+        <!-- Displaying the subjects after selection -->
+        <div id="subject-list" class="subject-list">
+            <!-- Subject links will appear here based on selection -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

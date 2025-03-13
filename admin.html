@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Upload</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Home</a>
+        <a href="study_material.html">Study Material</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html" id="logoutLink">Logout</a>
+    </div>
+
+    <div class="content">
+        <h1>Upload Study Material (Admin)</h1>
+        <form id="adminUploadForm">
+            <input type="text" id="materialTitle" placeholder="Material Title" required>
+            <textarea id="materialContent" placeholder="Material Content" required></textarea>
+            <label for="group">Group:</label>
+            <select id="adminGroup" required>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+            </select>
+
+            <label for="subject">Subject:</label>
+            <select id="adminSubject" required>
+                <option value="Physics">Physics</option>
+                <option value="Electrical">Electrical</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="EVS">EVS</option>
+                <option value="PPS">PPS</option>
+            </select>
+
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Make the navbar always visible */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+            z-index: 100; /* Ensure navbar is on top */
+            display: flex;
+            justify-content: space-between;  /* Spread navbar items apart */
+            align-items: center; /* Vertically align navbar items */
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            display: inline-block; /* Make links inline-block for proper spacing */
+        }
+
+        .navbar a:hover {
+            background-color: #fce93f;
+        }
+
+        /* Faded text at the right corner of the navbar */
+        .navbar .welcome-text {
+            font-size: 35px;
+            color: rgba(38, 127, 230, 0.76); /* Slightly faded text */
+            opacity: 0.7;
+        }
+
+        /* Center the slideshow with a larger size towards the bottom and rounded edges */
+        .slideshow-container {
+            position: relative;
+            width: 80%; /* Medium width */
+            height: 500px; /* Larger height for the slideshow */
+            margin: 120px auto; /* Added margin-top to avoid navbar overlap */
+            border-radius: 20px; /* Round the edges */
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Optional shadow for effect */
+        }
+
+        .slides {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the image fits nicely */
+            border-radius: 20px; /* Round edges of images */
+        }
+
+        .slide-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 30px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 10px;
+        }
+
+        /* Custom page content (will appear below the slideshow) */
+        .content {
+            padding: 20px;
+            text-align: center;
+            font-size: 24px;
+            z-index: 10;
+        }
+
+        /* Styling for the page content below the slideshow */
+        .content h1 {
+            font-size: 36px;
+            font-weight: bold;
+        }
+
+        .content p {
+            font-size: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <a href="index.html">Home</a>  <!-- Added Home link -->
+        <a href="study_material.html">Study Material</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="login.html" id="logoutLink">Logout</a>
+        <!-- Faded text on the right side of the navbar -->
+        <div class="welcome-text"><b></b></div>
+    </div>
+
+    <!-- Slideshow Container -->
+    <div class="slideshow-container">
+        <img class="slides" src="images/MOT1.jpg" alt="Slideshow Image 1">
+        <img class="slides" src="images/MOT2.jpg" alt="Slideshow Image 2">
+        <img class="slides" src="images/MOT3.jpg" alt="Slideshow Image 3">
+        <img class="slides" src="images/MOT4.jpg" alt="Slideshow Image 4">
+        <img class="slides" src="images/BESTMOT.jpg" alt="Slideshow Image 5">
+
+        <!-- Text on the slides -->
+        <div class="slide-text">Get Ready for Exams, Keep Studying!</div>
+    </div>
+
+    <!-- Page Content (Below the slideshow) -->
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlides() {
+            const slides = document.getElementsByClassName('slides');
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = 'none';
+            }
+
+            slideIndex++;
+            if (slideIndex > slides.length) {slideIndex = 1}
+
+            slides[slideIndex - 1].style.display = 'block';
+            setTimeout(showSlides, 3000); // Change image every 3 seconds
+        }
+
+        showSlides();
+    </script>
+
+</body>
+</html>
